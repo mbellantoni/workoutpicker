@@ -42,16 +42,77 @@ function upPrimary(n) {
 }
 
 
-function lowPrimary(n) {
-    var upperExercises = ["Squat", "Front Squat", "SSB Squat", "Pause Squat"];
+function upSecondary(n) {
+    var upperSecExercises = ["Dead Bench", "Incline Bench Press"];
     var result = new Array(n),
-        len = upperExercises.length,
+        len = upperSecExercises.length,
         taken = new Array(len);
     if (n > len)
         throw new RangeError("getRandom: more elements taken than available");
     while (n--) {
         var x = Math.floor(Math.random() * len);
-        result[n] = upperExercises[x in taken ? taken[x] : x];
+        result[n] = upperSecExercises[x in taken ? taken[x] : x];
+        taken[x] = --len in taken ? taken[len] : len;
+    }
+    return result;
+}
+
+function upAssistance(n) {
+    var upperAssitExercises = ["Dumbbell Bench", "Dumbbell Curl"];
+    var result = new Array(n),
+        len = upperAssitExercises.length,
+        taken = new Array(len);
+    if (n > len)
+        throw new RangeError("getRandom: more elements taken than available");
+    while (n--) {
+        var x = Math.floor(Math.random() * len);
+        result[n] = upperAssitExercises[x in taken ? taken[x] : x];
+        taken[x] = --len in taken ? taken[len] : len;
+    }
+    return result;
+}
+
+function lowPrimary(n) {
+    var lowerPrimExercises = ["Squat", "Front Squat", "SSB Squat", "Pause Squat"];
+    var result = new Array(n),
+        len = lowerPrimExercises.length,
+        taken = new Array(len);
+    if (n > len)
+        throw new RangeError("getRandom: more elements taken than available");
+    while (n--) {
+        var x = Math.floor(Math.random() * len);
+        result[n] = lowerPrimExercises[x in taken ? taken[x] : x];
+        taken[x] = --len in taken ? taken[len] : len;
+    }
+    return result;
+}
+
+function lowSeconday(n) {
+    var lowerSecExercises = ["Tempo Squat", "RDL"];
+    var result = new Array(n),
+        len = lowerSecExercises.length,
+        taken = new Array(len);
+    if (n > len)
+        throw new RangeError("getRandom: more elements taken than available");
+    while (n--) {
+        var x = Math.floor(Math.random() * len);
+        result[n] = lowerSecExercises[x in taken ? taken[x] : x];
+        taken[x] = --len in taken ? taken[len] : len;
+    }
+    return result;
+}
+
+
+function lowAssitance(n) {
+    var lowerAssitExercises = ["Leg Press", "Leg Extension"];
+    var result = new Array(n),
+        len = lowerAssitExercises.length,
+        taken = new Array(len);
+    if (n > len)
+        throw new RangeError("getRandom: more elements taken than available");
+    while (n--) {
+        var x = Math.floor(Math.random() * len);
+        result[n] = lowerAssitExercises[x in taken ? taken[x] : x];
         taken[x] = --len in taken ? taken[len] : len;
     }
     return result;
