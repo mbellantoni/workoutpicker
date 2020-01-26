@@ -26,6 +26,60 @@ return result;
 
 console.log(newLift('low',1));
 
+function newReps (int, n) {
+	if(int == 'low') {
+var reps = [10, 9, 8, 7]; }
+	else if (int == 'medium') {
+var reps = [7, 6, 5]; }
+	else if (int == 'high') {
+var reps = [5, 4, 3]; }
+	else if (int == 'very high') {
+var reps = [3, 2, 1]; }
+	else {
+window.alert( "intensity selected doesn't make sense"); }
+
+    var result = new Array(n),
+        len = reps.length,
+        taken = new Array(len);
+    if (n > len)
+        throw new RangeError("getRandom: more elements taken than available");
+    while (n--) {
+        var x = Math.floor(Math.random() * len);
+        result[n] = reps[x in taken ? taken[x] : x];
+        taken[x] = --len in taken ? taken[len] : len;
+    }
+	
+return result;
+}
+
+function newVolume (vol, n) {
+	if(vol == 'low') {
+var sets = [1, 2, 3]; }
+	else if (vol == 'medium') {
+var sets = [3, 4, 5]; }
+	else if (vol == 'high') {
+var sets = [5, 6, 7]; }
+	else if (vol == 'very high') {
+var sets = [8, 9, 10]; }
+	else {
+window.alert( "Sets selected doesn't make sense"); }
+
+    var result = new Array(n),
+        len = sets.length,
+        taken = new Array(len);
+    if (n > len)
+        throw new RangeError("getRandom: more elements taken than available");
+    while (n--) {
+        var x = Math.floor(Math.random() * len);
+        result[n] = sets[x in taken ? taken[x] : x];
+        taken[x] = --len in taken ? taken[len] : len;
+    }
+	
+return result;
+}
+
+console.log(newVolume('low',1));
+
 function upPrimary(n) {
     var upperExercises = ["Bench Press", "Close Grip Bench Press", "Wide Grip Bench Press", "Spoto Press"];
     var result = new Array(n),
